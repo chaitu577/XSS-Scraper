@@ -41,10 +41,10 @@ def links_to_page(url):
         url_in_tag = str(i.get("href"))
         if ("https://" in url_in_tag or "http://" in url_in_tag):
             url_in_tag = url_in_tag.split("//")[1]
- if ("www." in url_in_tag):
-                url_in_tag = url_in_tag.split("www.")[1]
-            if ("/" in url_in_tag):
-                url_in_tag = url_in_tag.split("/")[0]
+        if ("www." in url_in_tag):
+            url_in_tag = url_in_tag.split("www.")[1]
+        if ("/" in url_in_tag):
+            url_in_tag = url_in_tag.split("/")[0]
         if (url in url_in_tag):
             set_for_links.add(actual_url)
 
@@ -125,8 +125,8 @@ def find_xss(url):
 
 
 def payloads(file):
-    with open(file, "r") as f:
- payloads = f.read().splitlines()
+    with open(file,"rb") as f:
+        payloads = f.read().splitlines()
     return payloads
 
 
@@ -166,7 +166,7 @@ if __name__ == '__main__':
             url = input("Please input the url -> ")
             file = input("Payloads' file name -> ")
             payload = payloads(file)
-links = links_to_page(url)
+            links = links_to_page(url)
             for link in links:
                 try:
                     result = find_xss(link)
@@ -188,7 +188,7 @@ links = links_to_page(url)
         elif (choice == "3"):
             url = input("URL Please -> ")
             links = links_to_page(url)
-            for i in links:
+            for i in links: 
                 print(i)
         elif (choice == "4"):
             url = input("URL Please -> ")
