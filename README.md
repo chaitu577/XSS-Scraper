@@ -6,4 +6,4 @@ Requests &
 BeautifulSoup
 
 # Environment
-Designed to work with Python 3.X or Later
+Designed to work with Python 3.x
